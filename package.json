@@ -1,0 +1,17 @@
+{
+  "name": "my_koa",
+  "version": "1.0.0",
+  "description": "koa2-Server",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "TDW",
+  "license": "ISC"
+}
