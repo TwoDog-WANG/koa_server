@@ -1,6 +1,8 @@
 const fs = require('fs');
 //使用koa-router，导入的是个函数，需要运行
 const router = require('koa-router')();
+//对post使用koa-body组件
+const bodyparser = require('koa-body');
 
 let js_files = null;
 //读js文件名，返回数组，默认位置serverFunctions
@@ -22,7 +24,8 @@ function addServerFunction(files, path = './serverFunctions') {
                 router.get(url.substring(4), SevFs[url]);
             }
             else if(url.startsWith('POST')){
-                router.post(url.substring(5), SevFs[url]);
+                //body使用参数http://www.ptbird.cn/koa-body.html
+                router.post(url.substring(5),bodyparser({multipart: true}),SevFs[url]);
             }
             else{
                 console.log('无效暴露' + url);

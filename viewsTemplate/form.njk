@@ -1,0 +1,32 @@
+<form id={{who}}>
+    <div>
+        <label for="1">{{one}}:</label>
+        <input type="text" id="1" name={{one}}>
+    </div>
+    <div>
+        <label for="2">{{two}}:</label>
+        {% if who === 'thing' %}
+            <input type="datetime-local" id="2" name={{two}}>
+        {% else %}
+            <input type="date" id="2" name={{two}}>
+        {% endif %}
+    </div>
+    <div>
+        <label for="3">{{three}}:</label>
+        <input type="text" id="3" name={{three}}>
+    </div>
+    <div>
+        <label for="4">{{four}}:</label>
+        <input type="text" id="4" name={{four}}>
+    </div>
+    <div>
+        <label for="5">{{five}}:</label>
+        <input type="text" id="5" name={{five}}>
+    </div>
+    <input type="hidden" id="index" value={{index}}>
+    <div class="button">
+        <button type="submit">添加</button>
+        <button type="reset">重置</button>
+        <button type="button" id="close">关闭</button>
+    </div>
+<form>
