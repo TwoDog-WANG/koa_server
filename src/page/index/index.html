@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FistHtml</title>
+</head>
+<body>
+    <h1 id="h1">FUCK YOU</h1>
+    <form id="form">
+        <input type="text" name="usemane" id="n">
+        <input type="checkbox" name="a" id="" value="1">
+        <input type="checkbox" name="a" id="" value="2">
+        <input type="checkbox" name="a" id="" value="3">
+        <input type="checkbox" name="a" id="" value="4">
+        <button type="submit" id="submit">click</button>
+    </form>
+
+    <script>
+        function justOneClick(clickFunction) {
+            let time = null;
+            return function(e) {
+                if(!time) {
+                    time = setTimeout(() => {
+                        clickFunction();
+                    }, 3000);
+                }
+                else {
+                    console.log('please dont click');
+                    clearTimeout(time);
+                    time = setTimeout(() => {
+                        clickFunction();
+                    }, 3000);
+                }
+            }
+        }
+        let div = document.getElementById('h1');
+        div.addEventListener('click', justOneClick(()=>{console.log('click');}))
+
+        let a = function() {
+            let b = 10;
+            return function() {
+                let c = 20;
+                setTimeout(() => {
+                    console.log(b,c);
+                }, 1000);
+            }
+        }
+        a()();
+    </script>
+</body>
+</html>
